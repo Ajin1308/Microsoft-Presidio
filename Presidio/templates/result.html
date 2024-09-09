@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anonymized Text Result</title>
+</head>
+<body>
+    <h1>Anonymized Text Result</h1>
+    <h2>Original Text:</h2>
+    <textarea rows="10" cols="80">{{ original_text }}</textarea>
+    <h2>Anonymized Text:</h2>
+    <textarea rows="10" cols="80">{{ anonymized_text }}</textarea>
+    <h2>Detected PII:</h2>
+    <ul>
+        {% for detail in detected_details %}
+            <li>Detected: {{ detail.entity_type }}: {{ detail.start }} - {{ detail.end }} (Score: {{ detail.score }}) Original: {{ detail.original_text }}</li>
+        {% endfor %}
+    </ul>
+    <br>
+    <a href="/">Upload Another PDF</a>
+</body>
+</html>
